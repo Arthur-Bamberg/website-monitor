@@ -11,9 +11,6 @@ import (
 	"time"
 )
 
-const monitoramentos = 3
-const delay = 5
-
 func main() {
 
 	for {
@@ -53,12 +50,12 @@ func iniciarMonitoramento() {
 
 	sites := leSitesDoArquivo()
 
-	for i := 0; i < monitoramentos; i++ {
+	for {
 		for _, site := range sites {
 			testaSite(site)
 		}
 
-		time.Sleep(delay * time.Second)
+		time.Sleep(15 * time.Minute)
 	}
 }
 
